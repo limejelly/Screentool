@@ -8,6 +8,19 @@
 
 #import "AppDelegate.h"
 
+@interface ClearView : NSView
+
+@end
+
+@implementation ClearView
+
+//- (void)drawRect:(NSRect)dirtyRect {
+//    [[NSColor redColor] setFill];
+//    NSRectFill(dirtyRect);
+//}
+
+@end
+
 static NSString * kSettingsCaptureWindowShadow = @"captureShadows";
 static NSString * kSettingSaveImages = @"saveImages";
 static NSString * kSettingPlaySoundWhenCapture = @"playSoundWhenCapture";
@@ -16,6 +29,7 @@ static NSString * kSettingSelectedSystemSound = @"selectedSystemSound";
 static NSString * kSettingSaveImagesTo = @"saveImagesTo";
 
 @interface AppDelegate ()
+@property (unsafe_unretained) IBOutlet NSPanel *overlayWindow;
 @property (weak) IBOutlet NSButton *customButton;
 @property (weak) IBOutlet NSMenu *statusMenu;
 @property (strong) NSStatusItem *statusItem;
@@ -23,6 +37,8 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
 @property (strong) NSArray *systemSounds;
 @property (strong) NSNumber *selectedSystemSound;
 @property (strong) NSArray *directoriesList;
+
+
 @end
 
 @implementation AppDelegate
@@ -78,7 +94,8 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
 
 - (IBAction)systemSoundChanged:(id)sender {
     [[NSUserDefaults standardUserDefaults] synchronize];
-    [self playCurrentSystemSound];
+    NSString *soundName = [[NSUserDefaults standardUserDefaults] valueForKey:kSettingSelectedSystemSound];
+    [[NSSound soundNamed:soundName] play];
 }
 
 - (NSArray *) generateDirectoriesList {
@@ -90,17 +107,35 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
     return [directories valueForKey:@"lastPathComponent"];
 }
 
+- (BOOL)isSoundEnabled {
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:kSettingPlaySoundWhenCapture] boolValue];
+}
+
+- (BOOL)isShadowEnabled {
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:kSettingsCaptureWindowShadow] boolValue];
+}
+
+- (BOOL)isSaveEnabled {
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:kSettingSaveImages] boolValue];
+}
+
+- (BOOL)isVisualEffectsEnabled {
+    return [[[NSUserDefaults standardUserDefaults] valueForKey:kSettingVisualEffects] boolValue];
+}
+
 #pragma mark - Sound
 
 - (void) playCurrentSystemSound {
-    NSString *soundName = [[NSUserDefaults standardUserDefaults] valueForKey:kSettingSelectedSystemSound];
-    [[NSSound soundNamed:soundName] play];
+    if ([self isSoundEnabled]) {
+        NSString *soundName = [[NSUserDefaults standardUserDefaults] valueForKey:kSettingSelectedSystemSound];
+        [[NSSound soundNamed:soundName] play];
+    }
 }
 
 #pragma mark - Shotting
 
 - (NSURL *) saveCGImageAsScreenShot:(CGImageRef)screenshot {
-    NSURL *url = [self fileURLInDesktopWithFilename:[self generateFilenameWithExtension:@"png"]];
+    NSURL *url = [self fileURLForSaving];
     
     CGImageDestinationRef destination = CGImageDestinationCreateWithURL((__bridge CFURLRef)(url), kUTTypePNG, 1, NULL);
     CGImageDestinationAddImage(destination, screenshot, NULL);
@@ -158,7 +193,26 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
         windowID = [windowInfo[windowIDKey] intValue];
     }
     
-    CGImageRef image = CGWindowListCreateImage(CGRectNull, kCGWindowListOptionIncludingWindow, windowID, 0);
+    CGWindowImageOption imageOption = [self isShadowEnabled] ? 0 : kCGWindowImageBoundsIgnoreFraming;
+    CGImageRef image = CGWindowListCreateImage(CGRectNull, kCGWindowListOptionIncludingWindow, windowID, imageOption);
+    
+    
+    if ([self isVisualEffectsEnabled]) {
+        CGRect bounds;
+        if (CGRectMakeWithDictionaryRepresentation((__bridge CFDictionaryRef)(windowInfo[boundsKey]), &bounds)) {
+            CGDisplayModeRef displayMode = CGDisplayCopyDisplayMode(CGMainDisplayID());
+            bounds.origin.y = (CGDisplayModeGetHeight(displayMode) - bounds.origin.y) - bounds.size.height;
+            CGDisplayModeRelease(displayMode);
+            [self.overlayWindow setFrame:bounds display:YES];
+        }
+        [self.overlayWindow orderFrontRegardless];
+        
+        double delayInSeconds = 0.3;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [self.overlayWindow orderOut:nil];
+        });
+    }
 
     return [self saveCGImageAsScreenShot:image];
 }
@@ -169,14 +223,37 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
     return [[[self.dateFormatter stringFromDate:[NSDate date]] stringByAppendingFormat:@".%@", extension] stringByReplacingOccurrencesOfString:@" " withString:@"_"];
 }
 
+- (NSString *) filePathInDirectory:(NSString *)direcory withFileName:(NSString *)filename {
+    return [NSString stringWithFormat:@"%@/%@", direcory, filename];
+}
+
 - (NSURL *)fileURLInDesktopWithFilename:(NSString *)filename {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES);
-    return [NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", paths[0], filename]];
+    return [NSURL fileURLWithPath:[self filePathInDesktopWithFilename:filename]];
 }
 - (NSString *)filePathInDesktopWithFilename:(NSString *)filename {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES);
-    return [NSString stringWithFormat:@"%@/%@", paths[0], filename];
+    return [self filePathInDirectory:paths[0] withFileName:filename];
 }
+
+- (NSString *)filePathInDefaultDirectoryWithFileName:(NSString *)fileName {
+    if ([self isSaveEnabled]) {
+        return [self filePathInDesktopWithFilename:fileName];
+    }
+    else {
+        return [self filePathInDirectory:NSTemporaryDirectory() withFileName:fileName];
+    }
+    return nil;
+}
+
+- (NSString *)filePathForSaving {
+    return [self filePathInDefaultDirectoryWithFileName:[self generateFilenameWithExtension:@"png"]];
+}
+
+- (NSURL *)fileURLForSaving {
+    return [NSURL fileURLWithPath:[self filePathInDefaultDirectoryWithFileName:[self generateFilenameWithExtension:@"png"]]];
+}
+
+#pragma mark - Actions
 
 - (IBAction)captureWindowSelected:(NSMenuItem *)sender {
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(500 * NSEC_PER_MSEC));
@@ -207,7 +284,7 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
 }
 
 - (IBAction)captureSelectionSelected:(NSMenuItem *)sender {
-    NSString *path = [self filePathInDesktopWithFilename:[self generateFilenameWithExtension:@"png"]];
+    NSString *path = [self filePathForSaving];
     NSTask *task = [[NSTask alloc] init];
     task.launchPath = @"/usr/sbin/screencapture";
     task.arguments = @[@"-i", @"-x", @"-s", path];
