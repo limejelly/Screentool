@@ -8,19 +8,6 @@
 
 #import "AppDelegate.h"
 
-@interface ClearView : NSView
-
-@end
-
-@implementation ClearView
-
-//- (void)drawRect:(NSRect)dirtyRect {
-//    [[NSColor redColor] setFill];
-//    NSRectFill(dirtyRect);
-//}
-
-@end
-
 static NSString * kSettingsCaptureWindowShadow = @"captureShadows";
 static NSString * kSettingSaveImages = @"saveImages";
 static NSString * kSettingPlaySoundWhenCapture = @"playSoundWhenCapture";
@@ -29,6 +16,7 @@ static NSString * kSettingSelectedSystemSound = @"selectedSystemSound";
 static NSString * kSettingSaveImagesTo = @"saveImagesTo";
 
 @interface AppDelegate ()
+@property (weak) IBOutlet NSImageView *windowPreview;
 @property (unsafe_unretained) IBOutlet NSPanel *overlayWindow;
 @property (weak) IBOutlet NSButton *customButton;
 @property (weak) IBOutlet NSMenu *statusMenu;
@@ -196,8 +184,11 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
     CGWindowImageOption imageOption = [self isShadowEnabled] ? 0 : kCGWindowImageBoundsIgnoreFraming;
     CGImageRef image = CGWindowListCreateImage(CGRectNull, kCGWindowListOptionIncludingWindow, windowID, imageOption);
     
-    
     if ([self isVisualEffectsEnabled]) {
+        CGImageRef imageWithoutShadow = CGWindowListCreateImage(CGRectNull, kCGWindowListOptionIncludingWindow, windowID, kCGWindowImageBoundsIgnoreFraming);
+        NSSize size = NSMakeSize(CGImageGetWidth(imageWithoutShadow), CGImageGetHeight(imageWithoutShadow));
+        self.windowPreview.image = [[NSImage alloc] initWithCGImage:imageWithoutShadow size:size];
+        
         self.overlayWindow.hidesOnDeactivate = NO;
         CGRect bounds;
         if (CGRectMakeWithDictionaryRepresentation((__bridge CFDictionaryRef)(windowInfo[boundsKey]), &bounds)) {
@@ -208,7 +199,7 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
         }
         [self.overlayWindow orderFrontRegardless];
         
-        double delayInSeconds = 0.3;
+        double delayInSeconds = 0.5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self.overlayWindow orderOut:nil];
