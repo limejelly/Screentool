@@ -198,6 +198,7 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
     
     
     if ([self isVisualEffectsEnabled]) {
+        self.overlayWindow.hidesOnDeactivate = NO;
         CGRect bounds;
         if (CGRectMakeWithDictionaryRepresentation((__bridge CFDictionaryRef)(windowInfo[boundsKey]), &bounds)) {
             CGDisplayModeRef displayMode = CGDisplayCopyDisplayMode(CGMainDisplayID());
@@ -211,6 +212,7 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
         dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
             [self.overlayWindow orderOut:nil];
+            self.overlayWindow.hidesOnDeactivate = YES;
         });
     }
 
@@ -254,6 +256,10 @@ static NSString * kSettingSaveImagesTo = @"saveImagesTo";
 }
 
 #pragma mark - Actions
+- (IBAction)settingsClicked:(id)sender {
+    [self.window makeKeyWindow];
+    [self.window orderFrontRegardless];
+}
 
 - (IBAction)captureWindowSelected:(NSMenuItem *)sender {
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(500 * NSEC_PER_MSEC));
