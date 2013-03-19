@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		225E184316F4E79A008ECE8F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 225E184216F4E79A008ECE8F /* Cocoa.framework */; };
+		225E184D16F4E79A008ECE8F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 225E184B16F4E79A008ECE8F /* InfoPlist.strings */; };
+		225E184F16F4E79A008ECE8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 225E184E16F4E79A008ECE8F /* main.m */; };
+		225E185316F4E79A008ECE8F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 225E185116F4E79A008ECE8F /* Credits.rtf */; };
+		225E185616F4E79A008ECE8F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 225E185516F4E79A008ECE8F /* AppDelegate.m */; };
+		225E185916F4E79B008ECE8F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 225E185716F4E79B008ECE8F /* MainMenu.xib */; };
+		225E186016F4EA89008ECE8F /* icon-gradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 225E185F16F4EA89008ECE8F /* icon-gradient.png */; };
+		225E186216F4EB2A008ECE8F /* icon-gradient@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 225E186116F4EB2A008ECE8F /* icon-gradient@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		225E183F16F4E79A008ECE8F /* Screentool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Screentool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		225E184216F4E79A008ECE8F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		225E184516F4E79A008ECE8F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		225E184616F4E79A008ECE8F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		225E184716F4E79A008ECE8F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		225E184A16F4E79A008ECE8F /* Screentool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Screentool-Info.plist"; sourceTree = "<group>"; };
+		225E184C16F4E79A008ECE8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		225E184E16F4E79A008ECE8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		225E185016F4E79A008ECE8F /* Screentool-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Screentool-Prefix.pch"; sourceTree = "<group>"; };
+		225E185216F4E79A008ECE8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		225E185416F4E79A008ECE8F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		225E185516F4E79A008ECE8F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		225E185816F4E79B008ECE8F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		225E185F16F4EA89008ECE8F /* icon-gradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-gradient.png"; sourceTree = "<group>"; };
+		225E186116F4EB2A008ECE8F /* icon-gradient@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-gradient@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		225E183C16F4E79A008ECE8F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225E184316F4E79A008ECE8F /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		225E183616F4E79A008ECE8F = {
+			isa = PBXGroup;
+			children = (
+				225E184816F4E79A008ECE8F /* Screentool */,
+				225E184116F4E79A008ECE8F /* Frameworks */,
+				225E184016F4E79A008ECE8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		225E184016F4E79A008ECE8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				225E183F16F4E79A008ECE8F /* Screentool.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		225E184116F4E79A008ECE8F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				225E184216F4E79A008ECE8F /* Cocoa.framework */,
+				225E184416F4E79A008ECE8F /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		225E184416F4E79A008ECE8F /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				225E184516F4E79A008ECE8F /* AppKit.framework */,
+				225E184616F4E79A008ECE8F /* CoreData.framework */,
+				225E184716F4E79A008ECE8F /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		225E184816F4E79A008ECE8F /* Screentool */ = {
+			isa = PBXGroup;
+			children = (
+				225E185416F4E79A008ECE8F /* AppDelegate.h */,
+				225E185516F4E79A008ECE8F /* AppDelegate.m */,
+				225E185716F4E79B008ECE8F /* MainMenu.xib */,
+				225E184916F4E79A008ECE8F /* Supporting Files */,
+			);
+			path = Screentool;
+			sourceTree = "<group>";
+		};
+		225E184916F4E79A008ECE8F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				225E185F16F4EA89008ECE8F /* icon-gradient.png */,
+				225E186116F4EB2A008ECE8F /* icon-gradient@2x.png */,
+				225E184A16F4E79A008ECE8F /* Screentool-Info.plist */,
+				225E184B16F4E79A008ECE8F /* InfoPlist.strings */,
+				225E184E16F4E79A008ECE8F /* main.m */,
+				225E185016F4E79A008ECE8F /* Screentool-Prefix.pch */,
+				225E185116F4E79A008ECE8F /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		225E183E16F4E79A008ECE8F /* Screentool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 225E185C16F4E79B008ECE8F /* Build configuration list for PBXNativeTarget "Screentool" */;
+			buildPhases = (
+				225E183B16F4E79A008ECE8F /* Sources */,
+				225E183C16F4E79A008ECE8F /* Frameworks */,
+				225E183D16F4E79A008ECE8F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Screentool;
+			productName = Screentool;
+			productReference = 225E183F16F4E79A008ECE8F /* Screentool.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		225E183716F4E79A008ECE8F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Aliksandr Andrashuk";
+			};
+			buildConfigurationList = 225E183A16F4E79A008ECE8F /* Build configuration list for PBXProject "Screentool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 225E183616F4E79A008ECE8F;
+			productRefGroup = 225E184016F4E79A008ECE8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				225E183E16F4E79A008ECE8F /* Screentool */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		225E183D16F4E79A008ECE8F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225E184D16F4E79A008ECE8F /* InfoPlist.strings in Resources */,
+				225E185316F4E79A008ECE8F /* Credits.rtf in Resources */,
+				225E185916F4E79B008ECE8F /* MainMenu.xib in Resources */,
+				225E186016F4EA89008ECE8F /* icon-gradient.png in Resources */,
+				225E186216F4EB2A008ECE8F /* icon-gradient@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		225E183B16F4E79A008ECE8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				225E184F16F4E79A008ECE8F /* main.m in Sources */,
+				225E185616F4E79A008ECE8F /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		225E184B16F4E79A008ECE8F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				225E184C16F4E79A008ECE8F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		225E185116F4E79A008ECE8F /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				225E185216F4E79A008ECE8F /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		225E185716F4E79B008ECE8F /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				225E185816F4E79B008ECE8F /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		225E185A16F4E79B008ECE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		225E185B16F4E79B008ECE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		225E185D16F4E79B008ECE8F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Screentool/Screentool-Prefix.pch";
+				INFOPLIST_FILE = "Screentool/Screentool-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		225E185E16F4E79B008ECE8F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Screentool/Screentool-Prefix.pch";
+				INFOPLIST_FILE = "Screentool/Screentool-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		225E183A16F4E79A008ECE8F /* Build configuration list for PBXProject "Screentool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225E185A16F4E79B008ECE8F /* Debug */,
+				225E185B16F4E79B008ECE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		225E185C16F4E79B008ECE8F /* Build configuration list for PBXNativeTarget "Screentool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				225E185D16F4E79B008ECE8F /* Debug */,
+				225E185E16F4E79B008ECE8F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 225E183716F4E79A008ECE8F /* Project object */;
+}
