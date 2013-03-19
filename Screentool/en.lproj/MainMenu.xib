@@ -1297,7 +1297,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">7</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{335, 390}, {440, 360}}</string>
+				<string key="NSWindowRect">{{335, 390}, {440, 165}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">Screentool</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1310,8 +1310,9 @@
 						<object class="NSButton" id="165719517">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{19, 324}, {177, 18}}</string>
+							<string key="NSFrame">{{19, 129}, {177, 18}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="1033081234"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1345,8 +1346,9 @@
 						<object class="NSButton" id="1033081234">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{19, 292}, {121, 18}}</string>
+							<string key="NSFrame">{{19, 97}, {121, 18}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="283376538"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1371,8 +1373,9 @@
 						<object class="NSButton" id="642926434">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{19, 260}, {179, 18}}</string>
+							<string key="NSFrame">{{19, 65}, {179, 18}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="456712474"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1397,8 +1400,9 @@
 						<object class="NSButton" id="69577635">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{19, 227}, {195, 18}}</string>
+							<string key="NSFrame">{{19, 32}, {195, 18}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1423,8 +1427,9 @@
 						<object class="NSPopUpButton" id="283376538">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{263, 288}, {160, 26}}</string>
+							<string key="NSFrame">{{263, 93}, {160, 26}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="642926434"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1492,8 +1497,9 @@
 						<object class="NSPopUpButton" id="456712474">
 							<reference key="NSNextResponder" ref="439893737"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{271, 256}, {152, 26}}</string>
+							<string key="NSFrame">{{271, 61}, {152, 26}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
+							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="69577635"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
@@ -1559,8 +1565,9 @@
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
 					</array>
-					<string key="NSFrameSize">{440, 360}</string>
+					<string key="NSFrameSize">{440, 165}</string>
 					<reference key="NSSuperview"/>
+					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="165719517"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
@@ -1689,16 +1696,16 @@
 			<object class="NSUserDefaultsController" id="902206743">
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
-			<object class="NSWindowTemplate" id="474516834">
+			<object class="NSWindowTemplate" id="29380189">
 				<int key="NSWindowStyleMask">8336</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{109, 132}, {480, 270}}</string>
+				<string key="NSWindowRect">{{377, 248}, {480, 270}}</string>
 				<int key="NSWTFlags">611849216</int>
 				<string key="NSWindowTitle">Window</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
 				<nil key="NSUserInterfaceItemIdentifier"/>
-				<object class="NSView" key="NSWindowView" id="134705840">
+				<object class="NSView" key="NSWindowView" id="983842698">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<string key="NSFrameSize">{480, 270}</string>
@@ -2496,7 +2503,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">overlayWindow</string>
 						<reference key="source" ref="976324537"/>
-						<reference key="destination" ref="474516834"/>
+						<reference key="destination" ref="29380189"/>
 					</object>
 					<int key="connectionID">686</int>
 				</object>
@@ -2639,6 +2646,22 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: values.saveImages</string>
+						<reference key="source" ref="283376538"/>
+						<reference key="destination" ref="902206743"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="283376538"/>
+							<reference key="NSDestination" ref="902206743"/>
+							<string key="NSLabel">enabled: values.saveImages</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">values.saveImages</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">688</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
 						<string key="label">content: systemSounds</string>
 						<reference key="source" ref="456712474"/>
 						<reference key="destination" ref="976324537"/>
@@ -2669,6 +2692,22 @@
 						</object>
 					</object>
 					<int key="connectionID">657</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: values.playSoundWhenCapture</string>
+						<reference key="source" ref="456712474"/>
+						<reference key="destination" ref="902206743"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="456712474"/>
+							<reference key="NSDestination" ref="902206743"/>
+							<string key="NSLabel">enabled: values.playSoundWhenCapture</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">values.playSoundWhenCapture</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">690</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3897,16 +3936,16 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">684</int>
-						<reference key="object" ref="474516834"/>
+						<reference key="object" ref="29380189"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="134705840"/>
+							<reference ref="983842698"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">685</int>
-						<reference key="object" ref="134705840"/>
-						<reference key="parent" ref="474516834"/>
+						<reference key="object" ref="983842698"/>
+						<reference key="parent" ref="29380189"/>
 					</object>
 				</array>
 			</object>
@@ -4107,7 +4146,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">686</int>
+			<int key="maxID">690</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4117,6 +4156,7 @@
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="captureScreenSelected:">NSMenuItem</string>
 						<string key="captureSelectionSelected:">NSMenuItem</string>
+						<string key="captureWindowSelected:">NSMenuItem</string>
 						<string key="systemSoundChanged:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
@@ -4126,6 +4166,10 @@
 						</object>
 						<object class="IBActionInfo" key="captureSelectionSelected:">
 							<string key="name">captureSelectionSelected:</string>
+							<string key="candidateClassName">NSMenuItem</string>
+						</object>
+						<object class="IBActionInfo" key="captureWindowSelected:">
+							<string key="name">captureWindowSelected:</string>
 							<string key="candidateClassName">NSMenuItem</string>
 						</object>
 						<object class="IBActionInfo" key="systemSoundChanged:">
